@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang = "fr">
+    <head>
+        <link rel="icon" href="{{ url_for('static', filename='ico.png') }}" />
+        <link rel="stylesheet" href= "https://use.fontawesome.com/releases/v5.11.2/css/all.css" > 
+        <title>Leaderboard - Labyrinth</title>
+        <meta charset = "UTF-8">
+        <link rel = "stylesheet" href = "../static/style.css">
+        <link rel = "stylesheet" href = "static/style.css">
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </head>
+    <body class="all_body">
+        <header class="head_all">
+            <div class="image_ico">
+            </div>
+            <div class="box_head">
+                <p class="head_title">N°1 of labyrinth games</p>
+            </div>
+            <div class="box_head">
+                <p class="head_title"><a class="about" href="{{ url_for('static', filename='../about') }}">About us</a></p>
+            </div>
+        </header>
+        <table>
+            <caption>
+                Classement of all players of our game
+            </caption>
+            <thead>
+                <tr>
+                    <th id="trop" scope="col">🏆</th>
+                    <th class="coll" scope="col">Pseudo</th>
+                    <th class="coll" scope="col">Level</th>
+                    <th class="coll" scope="col">Time</th>
+                    <th class="coll" scope="col">Map</th>
+                    <th class="coll" scope="col">Character</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for valeur in liste %}
+                <tr>
+                    <th id="rank" scope="row">{{valeur['rank']}}</th>
+                    <td>{{valeur['pseudo']}}</td>
+                    <td>{{valeur['level']}}</td>
+                    <td>{{valeur['timer']}}</td>
+                    <td>{{valeur['map']}}</td>
+                    <td>{{valeur['character']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+          <footer class="foot">
+            <div class="image_ico">
+            </div>
+            <div class="box_foot">
+                <p class="foot_title">Made with &nbsp; <i class="fa fa-heart"></i> &nbsp; by the all team</p>
+            </div>
+            <div class="box_foot">
+                <p class="foot_title"><a class="about" href="{{ url_for('static', filename='../about') }}">About us</a></p>
+            </div>
+        </footer>
+    </body>
+</html>
